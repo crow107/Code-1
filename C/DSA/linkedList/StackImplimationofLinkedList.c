@@ -5,26 +5,34 @@ struct node{                        // struct of Node
     int info;
     struct node * link;
 };
-struct node *Head,*p,*start;
+struct node *Head,*p,*start,*temp;
  
-void insertionAtTheEnd(int n){                  // Insertion 
+void insertionAtTheBeginning(int n){                  // Insertion 
     int i;
     start =NULL;
     for(i=0;i<n;i++){                       
-        p = (struct node*) malloc(sizeof(struct node)); //creating a node or giving size to the node 
-        printf("Enter in The Info Part (%d node):- ",i+1);   //adding info in the node
-        scanf("%d",&p->info);
-        p->link = NULL;                                 // adding the link of the node to null
-        if(start==NULL){                                // if the start node is null (meaning the insertion in the first node)
-            start=p;                                    // set the start to p , head
+        p = (struct node*) malloc(sizeof(struct node));        // Address of the first node
+        printf("Enter in The Info Part (%d node):- ",i+1);     // Adding info to that node
+        scanf("%d",&p->info);                                  
+        if(start==NULL){                                       // If The node is first
+            start = p;                                           // Start = p
+            Head  = p;                                          // Head = p 
+            Head->link =NULL;
+        }
+        else{
+            p->link = Head;
             Head =p;
         }
-        else{                                           // else
-            Head->link = p;                             // add address of next node in the link of the previous node
-            Head = Head->link;                          // head = head ->link (go to the next node)
-        }
     }
-    Head = start;
+    start = Head;
+    
+}
+void DeletionAtTheBeginning(){
+    temp = Head;
+    Head = Head->link;
+    start = Head;
+    printf("Deleted Node = [%d | %p]\n",temp->info,temp->link);
+    free(temp);
 }
 void Display(){
     printf("List after insertion is : \n");
@@ -36,12 +44,17 @@ void Display(){
     }
     printf("[End]");
     
+    
 }
 
 int main(){
     int n;
     printf("Enter the Number of Nodes :- ");
     scanf("%d",&n);
-    insertionAtTheEnd(n);
+    insertionAtTheBeginning(n);
+    Display();
+    Head = start;
+    printf("\n");
+    DeletionAtTheBeginning();
     Display();
 }
