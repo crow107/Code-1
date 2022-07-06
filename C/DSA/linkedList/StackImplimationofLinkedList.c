@@ -73,7 +73,7 @@ int main(){
     printf("2.Pop\n");
     printf("3.Display\n");
     printf("4.Exit\n");
-    printf("Enter the Answer:-")
+    printf("Enter the Answer:-");
     scanf("%d",&answer);
     switch (answer)
     {
