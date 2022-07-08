@@ -8,6 +8,7 @@ int main(){
     int stack[20];
     int top= -1;
     int ref= 48;
+    printf("Format: Ex( 123+- ) \n");
     printf("Enter The Expression : ");
     fgets(name,20,stdin);
     // * = -6, - = -3 ,+ = -5,/ = -1 ,^ = 46

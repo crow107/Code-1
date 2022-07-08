@@ -10,10 +10,10 @@ int main(){
     int ref= 48;
     int ex=0;
     
-    printf("Format : Ex - a,b,c,+,- here a, b , c can be two digit no 3 digit no or can be any digit number");
+    printf("( Format : Ex - a,b,c,+,-) here a, b , c can be N digit number)\n");
+    printf("Don't Forget to add ) after the last expresstion Ex - [ 1,2,+) ]\n");
     printf("Enter the Expression : ");
     fgets(name,50,stdin);
-
     for(i = 0;i<strlen(name)-1;){
         int Fnum; 
         if(ex==1){
