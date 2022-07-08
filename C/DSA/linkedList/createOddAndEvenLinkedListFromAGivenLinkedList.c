@@ -54,13 +54,13 @@ void SeperatingOddAndEvenLinkedList(){
     Head3 = start3;
 }
 void Display(struct node *Head, struct node * start){
-    printf("[Start | %p] ----> ",start);
+    printf("[Start | %p]---->",start);
     while(Head->link!=NULL)
     {
-        printf("[%d | %p] ----> ",Head->info,Head->link);
+        printf("[%d | %p]---->",Head->info,Head->link);
         Head=Head->link;
     }
-    printf("[%d | %p]  \n\n",Head->info,Head->link);
+    printf("[%d | %p]\n\n",Head->info,Head->link);
     
 }
 
@@ -69,9 +69,12 @@ int main(){
     printf("Enter The Number of Nodes :-  ");
     scanf("%d",&n);
     Insertion(n);
+    printf("Main Linked list \n");
     Display(Head1,start1);
     SeperatingOddAndEvenLinkedList();
+    printf("Even Linked List \n");
     Display(Head2,start2);
+    printf("Odd Linked List \n");
     Display(Head3,start3);
 
 }
