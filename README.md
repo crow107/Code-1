@@ -1,4 +1,4 @@
-# Code
+# CODE
 
 [C](https://github.com/Kanishkrawatt/Code/tree/master/C)<br>
 [Python](https://github.com/Kanishkrawatt/Code/tree/master/python)<br>
