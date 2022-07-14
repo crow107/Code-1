@@ -5,7 +5,7 @@ struct node{                        // struct of Node
     int info;
     struct node * link;
 };
-struct node * Rare,*front,*p,*start,* Head,*temp;
+struct node * Rare,*front,*p,*start=NULL,* Head,*temp;
 
 void InsertionInTheBeginning(){
     p = (struct node*) malloc(sizeof(struct node));        // Address of the first node
@@ -43,7 +43,8 @@ void InsertionInTheEnd(){
     scanf("%d",&p->info);
     p->link=NULL;
     if(start == NULL){
-        start = Head = front = Rare = p ;
+        start = p ;
+        Head = p;
     }
     else{
         Head->link = p;
@@ -83,6 +84,7 @@ void DeletionAfterAGivenNode(int item){
     free(temp);
 }
 void Display(){
+    Head = start;
     printf("List after insertion is : \n");
     printf("[Start | %p] ----> ",start);
     while(Head!=NULL)
@@ -106,11 +108,27 @@ void Sorting(){
                 temp2->info =a;
             }
         }
+        
     }
+    free(temp1);
+    free(temp2);
     printf(".Sorted. \n");
     
 }
-void Searching(){
+void reverse(){
+    int a;
+    struct node *temp1;
+    struct node *temp2;
+    for(temp1=start;temp1!=NULL;temp1=temp1->link){
+        for(temp2 = temp1->link;temp2 !=NULL;temp2=temp2->link){
+            a = temp1->info;
+            temp1->info = temp2->info;
+            temp2->info = a;
+        }
+    }
+    
+}
+void Searching(int item){
     int a = 0;
     while (Head!=NULL)
     {
@@ -167,6 +185,9 @@ int main(){
         Display();
         break;
     case 7:
+        reverse();
+        break;
+    case 8:
         n=0;
         break;
     default:
